@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindCare 💙</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💙 MindCare</h1>
+    <p>Tu espacio de calma y bienestar</p>
+
+    <div class="menu">
+      <button onclick="abrirSeccion('respiracion')">🧘 Respiración</button>
+      <button onclick="abrirSeccion('asistente')">💬 Hablar con MindCare</button>
+      <button onclick="abrirSeccion('musica')">🎵 Sonidos</button>
+      <button onclick="abrirSeccion('calendario')">🗓️ Calendario</button>
+      <button onclick="abrirSeccion('gratitud')">💖 Gratitud</button>
+    </div>
+
+    <!-- 🧘 RESPIRACIÓN -->
+    <div id="respiracion" class="seccion hidden">
+      <h2>Ejercicio de respiración</h2>
+      <canvas id="breathCanvas" width="200" height="200"></canvas>
+      <p id="gameText">Presiona "Iniciar" para comenzar 🌿</p>
+      <select id="duracion">
+        <option value="1">1 minuto</option>
+        <option value="3">3 minutos</option>
+        <option value="5">5 minutos</option>
+      </select>
+      <button onclick="iniciarRespiracion()">Iniciar 🌬️</button>
+    </div>
+
+    <!-- 💬 ASISTENTE -->
+    <div id="asistente" class="seccion hidden">
+      <h2>Habla con MindCare 💬</h2>
+      <input type="text" id="emocion" placeholder="¿Cómo te sientes hoy? 😌">
+      <button onclick="responderEmocion()">Enviar</button>
+      <p id="respuesta"></p>
+    </div>
+
+    <!-- 🎵 MÚSICA -->
+    <div id="musica" class="seccion hidden">
+      <h2>Sonidos relajantes 🎵</h2>
+      <button onclick="tocarSonido('mar')">🌊 Mar</button>
+      <button onclick="tocarSonido('bosque')">🌲 Bosque</button>
+      <button onclick="tocarSonido('lluvia')">☔ Lluvia</button>
+      <button onclick="tocarSonido('fuego')">🔥 Fuego</button>
+      <button onclick="detenerMusica()">⏹️ Detener</button>
+      <audio id="player"></audio>
+    </div>
+
+    <!-- 🗓️ CALENDARIO -->
+    <div id="calendario" class="seccion hidden">
+      <h2>Calendario emocional 🗓️</h2>
+      <input type="date" id="fecha">
+      <select id="estado">
+        <option value="feliz">😊 Feliz</option>
+        <option value="tranquilo">😌 Tranquilo</option>
+        <option value="estresado">😣 Estresado</option>
+      </select>
+      <button onclick="guardarEstado()">Guardar</button>
+      <ul id="listaEstados"></ul>
+    </div>
+
+    <!-- 💖 GRATITUD -->
+    <div id="gratitud" class="seccion hidden">
+      <h2>Modo Gratitud 💖</h2>
+      <input type="text" id="agradecidoPor" placeholder="Hoy agradezco por...">
+      <button onclick="guardarGratitud()">Agregar</button>
+      <ul id="listaGratitud"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
